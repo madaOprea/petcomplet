@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="adminBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="561.0" prefWidth="811.0" style="-fx-background-color: #4fadb0; -fx-border-color: #ffc900;"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.app.petcomplet.controller.AdminController">
+   <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <Pane layoutX="20.0" layoutY="55.0" prefHeight="497.0" prefWidth="783.0" style="-fx-background-color: #FFC900;">
+                   <children>
+                      <TabPane layoutX="7.0" layoutY="2.0" prefHeight="488.0" prefWidth="767.0" tabClosingPolicy="UNAVAILABLE">
+                        <tabs>
+                          <Tab text="Dashboard">
+                               <content>
+                                  <TreeTableView prefHeight="336.0" prefWidth="514.0">
+                                     <columns>
+                                        <TreeTableColumn text="Cabinet 1" />
+                                        <TreeTableColumn text="Cabinet 2" />
+                                        <TreeTableColumn text="Cabinet 3" />
+                                        <TreeTableColumn text="Cabinet 4" />
+                                        <TreeTableColumn text="Cabinet 5" />
+                                     </columns>
+                                  </TreeTableView>
+                               </content>
+                          </Tab>
+                          <Tab text="New appointment">
+                            <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                     <children>
+                                        <Pane layoutX="13.0" layoutY="10.0" prefHeight="436.0" prefWidth="742.0">
+                                           <children>
+                                              <TextField fx:id="ownerNameTextField" layoutX="104.0" layoutY="25.0" prefHeight="26.0" prefWidth="171.0" />
+                                              <TextField fx:id="petNameTextField" layoutX="104.0" layoutY="63.0" prefHeight="26.0" prefWidth="172.0" />
+                                              <TextField fx:id="breedTextField" layoutX="104.0" layoutY="98.0" prefHeight="26.0" prefWidth="174.0" />
+                                              <DatePicker fx:id="dateTime" layoutX="104.0" layoutY="138.0" />
+                                              <Label layoutX="28.0" layoutY="29.0" text="Owner" />
+                                              <Label layoutX="27.0" layoutY="67.0" text="Pet" />
+                                              <Label layoutX="24.0" layoutY="103.0" prefHeight="17.0" prefWidth="38.0" text="Breed" />
+                                              <Label layoutX="28.0" layoutY="142.0" text="Date" />
+                                              <TextArea fx:id="issuesBoxTextArea" layoutX="104.0" layoutY="182.0" prefHeight="109.0" prefWidth="189.0" />
+                                              <Label layoutX="28.0" layoutY="182.0" prefHeight="18.0" prefWidth="39.0" text="Issue:" />
+                                              <Button fx:id="saveButton" layoutX="103.0" layoutY="317.0" mnemonicParsing="false" onAction="#saveNewAppointment" text="Save" />
+                                                  <ImageView fitHeight="237.0" fitWidth="198.0" layoutX="480.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                                                      <image>
+                                                          <Image url="@../img/image1.png" />
+                                                      </image>
+                                                  </ImageView>
+                                           </children>
+                                        </Pane>
+                                     </children>
+                                  </AnchorPane>
+                            </content>
+                          </Tab>
+                        </tabs>
+                      </TabPane>
+                   </children>
+                </Pane>
+                    <Button fx:id="logoutButton" layoutX="730.0" layoutY="8.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="11.0" prefWidth="74.0" style="-fx-background-color: #FFC900;" text="Logout">
+                        <font>
+                          <Font size="15.0" />
+                       </font>
+                    </Button>
+
+            </children>
+        </AnchorPane>
+   </center>
+</BorderPane>

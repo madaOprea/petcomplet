@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #4fadb0; -fx-border-color: #ffc900;"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.app.petcomplet.controller.LoginController">
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="412.0" fitWidth="210.0" layoutX="57.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/image1.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="335.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="92.0" layoutX="137.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/image2.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="32.0" layoutY="155.0" text="Username" textFill="#ffc900">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="35.0" layoutY="211.0" text="Password" textFill="#ffc900">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameTextField" layoutX="146.0" layoutY="158.0" promptText="Username" />
+                <PasswordField fx:id="passwordPasswordField" layoutX="146.0" layoutY="214.0" promptText="Password" />
+                <Button fx:id="loginButton" layoutX="130.0" layoutY="298.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="33.0" prefWidth="74.0" style="-fx-background-color: #ffc900;" text="Login" />
+                <Label fx:id="wrongLoginLabel" layoutX="146.0" layoutY="250.0" textFill="#ff622e"/>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
