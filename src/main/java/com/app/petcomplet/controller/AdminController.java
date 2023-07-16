@@ -2,22 +2,12 @@ package com.app.petcomplet.controller;
 
 import com.app.petcomplet.model.*;
 import com.app.petcomplet.service.*;
-import com.app.petcomplet.utils.ViewUtils;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.*;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 @Controller
 public class AdminController {
