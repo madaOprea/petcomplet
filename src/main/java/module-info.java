@@ -13,6 +13,7 @@ module com.app.petcomplet {
     requires spring.context;
     requires spring.web;
     requires spring.boot;
+    requires net.rgielen.fxweaver.core;
 
     opens com.app.petcomplet to javafx.fxml;
     opens com.app.petcomplet.controller to javafx.fxml;
