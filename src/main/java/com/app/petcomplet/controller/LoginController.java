@@ -33,7 +33,7 @@ public class LoginController {
             loginButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    viewUtils.changeScene(actionEvent, String.valueOf(getClass().getResource("/com/app/petcomplet/admin-view.fxml")));
+                    viewUtils.changeScene(actionEvent,"/com/app/petcomplet/admin-view.fxml");
                 }
             });
         } else if(username.isEmpty() && password.isEmpty()) {
