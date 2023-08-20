@@ -1,17 +1,19 @@
 package com.app.petcomplet.controller;
 
-import com.app.petcomplet.utils.ViewUtils;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.app.petcomplet.PetcompletApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import org.springframework.stereotype.Controller;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.stereotype.Component;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-@Controller
-public class LoginController {
+@Component
+@FxmlView("/com.app.petcomplet.login-view.fxml")
+public class LoginController extends BaseScreenController implements Initializable {
 
     @FXML private Label wrongLoginLabel;
     @FXML private TextField usernameTextField;
@@ -22,26 +24,26 @@ public class LoginController {
     private Scene adminScene;
     String username, password;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.screenName.setText("Screen1");
+    }
+
     @FXML
-    public void userLogin(ActionEvent actionEvent) throws IOException {
+    public void userLogin() {
         username = usernameTextField.getText();
         password = passwordPasswordField.getText();
-
-        ViewUtils viewUtils = new ViewUtils();
-
-        if(isValidCredentials(username, password)) {
-            loginButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    viewUtils.changeScene(actionEvent,"/com/app/petcomplet/admin-view.fxml");
-                }
-            });
-        } else if(username.isEmpty() && password.isEmpty()) {
+        loginButton.setOnAction(event -> {
+            if(isValidCredentials(username, password)) {
+                PetcompletApplication app = new PetcompletApplication();
+                    this.sc.loadScreen("/fxml/login-view.fxml");
+            } else if(username.isEmpty() && password.isEmpty()) {
                 wrongLoginLabel.setText("Please enter your data.");
-        } else {
-            clearFields();
-            wrongLoginLabel.setText("Wrong username or password!");
-        }
+            } else {
+                clearFields();
+                wrongLoginLabel.setText("Wrong username or password!");
+            }
+        });
     }
 
     private boolean isValidCredentials(String username, String password) {

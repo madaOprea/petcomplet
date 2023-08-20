@@ -1,15 +1,26 @@
 package com.app.petcomplet.controller;
 
+import com.app.petcomplet.PetcompletApplication;
 import com.app.petcomplet.model.*;
 import com.app.petcomplet.service.*;
 import javafx.fxml.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @Controller
+@FxmlView("/com.app.petcomplet.admin-view.fxml")
 public class AdminController {
 
     @FXML private Button logoutButton;

@@ -42,6 +42,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-json</artifactId>
+			<version>3.0.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+
 		<!-- javafx -->
 		<dependency>
 			<groupId>net.rgielen</groupId>

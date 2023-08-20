@@ -16,12 +16,14 @@ module com.app.petcomplet {
     requires net.rgielen.fxweaver.core;
     requires java.validation;
 
-    opens com.app.petcomplet to javafx.fxml;
+    opens com.app.petcomplet;
     opens com.app.petcomplet.controller to javafx.fxml;
     opens com.app.petcomplet.model to javafx.fxml;
     opens com.app.petcomplet.service to javafx.fxml;
+    opens com.app.petcomplet.utils to javafx.fxml;
 
     exports com.app.petcomplet;
-    exports com.app.petcomplet.model;
-    exports com.app.petcomplet.service;
+    exports com.app.petcomplet.controller;
+    exports com.app.petcomplet.configuration;
+    exports com.app.petcomplet.utils;
 }

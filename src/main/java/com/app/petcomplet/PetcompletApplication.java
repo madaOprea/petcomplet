@@ -1,35 +1,40 @@
 package com.app.petcomplet;
 
+import com.app.petcomplet.configuration.AppContextConfig;
+import com.app.petcomplet.controller.*;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.paint.Color;
-import javafx.stage.*;
+import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages={"com.app.petcomplet", "com.app.petcomplet.controller"},
+		basePackageClasses={PetcompletApplication.class, LoginController.class})
 public class PetcompletApplication extends Application {
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+	private ConfigurableApplicationContext applicationContext;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/app/petcomplet/login-view.fxml"));
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppContextConfig.class);
+		ScreensController bean = context.getBean(ScreensController.class);
+		bean.init(primaryStage);
 
-			Parent root = fxmlLoader.load();
-//			LoginController loginController = fxmlLoader.getController();
-			Scene scene = new Scene(root);
-			scene.setFill(Color.TRANSPARENT);
-
-			primaryStage.initStyle(StageStyle.TRANSPARENT);
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Login");
-			primaryStage.show();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+		bean.loadScreen("/fxml/login-view.fxml");
 	}
-}
+
+	@Override
+	public void stop() throws Exception{
+		// Close the Spring context
+		applicationContext.close();
+	}
+
+	public static void main(String[] args) {
+		launch();
+	}}
